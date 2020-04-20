@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <UI v-if="!url" :url.sync="url" />
+    <Display v-if="url" :url="url" />
   </div>
 </template>
 
+
+
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UI from './components/UI.vue'
+import Display from './components/Display.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    UI, Display
+  },
+  data(){
+    return{
+      url:''
+    }
   }
 }
 </script>
 
+
+
+<style src="../node_modules/milligram/dist/milligram.css"></style>
 <style>
+*{
+  box-sizing: border-box;
+}
+html, body, #app{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: ;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  
 }
 </style>
